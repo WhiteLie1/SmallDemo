@@ -1,0 +1,65 @@
+<!-- pages/mine/mine.wxml -->
+<view class="container">
+  <view class='head head-height'>
+    <!-- 最上面的头部的一栏的设置 -->
+    <block wx:if="{{!hasUserInfo && canIUse}}">
+      <view class="userinfo">
+        <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
+        <text class="userinfo-nickname">微信授权</text>
+      </view>
+      <button class="login-button head-height" open-type="getUserInfo" bindgetuserinfo="getUserInfo">
+        获取头像昵称
+      </button>
+    </block>
+    <block wx:else>
+      <view class="userinfo">
+        <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
+        <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+      </view>
+    </block>
+  </view>
+ 
+  <view class="separate"></view>
+  <view class="order" catchtap="toOrder">
+    <text class="myorder-text">我的订单</text>
+    <text class="myorderlook-text">查看全部订单</text>
+    <image class="next-image" src="../../images/person/quanbu.png"></image>
+  </view>
+  <view class="line"></view>
+  <view class="navs">
+    <block wx:for-items="{{orderItems}}" wx:key="name">
+      <view class="nav-item" bindtap="toOrder{{item.typeId}}" data-type="{{item.name}}" data-typeid="{{item.typeId}}">
+        <image src="{{item.imageurl}}" class="nav-image" />
+        <view>{{item.name}}</view>
+      </view>
+    </block>
+  </view>
+  <view class="separate"></view>
+  <view class="person-list">
+    <view class="list-item">
+      <image class="item-image" src="../../images/person/wodeshoucang.png"></image>
+      <text class="item-text">我的收藏</text>
+    </view>
+    <view class="person-line"></view>
+    <view class="list-item">
+      <image class="item-image" src="../../images/person/wodeshouhuodizhi.png"></image>
+      <text class="item-text">收货地址</text>
+    </view>
+    <view class="person-line"></view>
+    <view class="list-item">
+      <image class="item-image" src="../../images/person/shouhoujilu.png"></image>
+      <text class="item-text">售后记录</text>
+    </view>
+    <view class="person-line"></view>
+    <view class="list-item">
+      <image class="item-image" src="../../images/person/wodepinjia.png"></image>
+      <text class="item-text">我的评价</text>
+    </view>
+    <view class="person-line"></view>
+    <view class="list-item">
+      <image class="item-image" src="../../images/person/tuiguangyaoqing.png"></image>
+      <text class="item-text">推广邀请</text>
+    </view>
+  </view>
+  <view class="separate"></view>
+</view>

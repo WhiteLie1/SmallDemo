@@ -1,0 +1,21 @@
+<view class='topExpress'>
+  <view wx:for='{{qbdd}}'>
+   
+    <view class='topExpress-left'>
+      <image src='/images/person/kuaidi.png' style='width:60rpx;height:60rpx;border-radius:50%;'></image>
+    </view>
+    <view style="margin-left:50rpx"class='topExpress-right'>
+    
+      <view class='topExpress-right-top'>订单号码：{{item.order_id}}</view>
+      <view class='topExpress-right-middle'>下单时间:{{item.order_create_time}}</view>
+      <!--wx:if 来判断当前的状态并进行显示-->
+      <view wx:if="{{item.order_status==0}}"class='topExpress-right-bottom'>订单状态:代付款</view>
+      <view wx:if="{{item.order_status==1}}"class='topExpress-right-bottom'>订单状态:已付款</view>
+      <view wx:if="{{item.order_status==2}}"class='topExpress-right-bottom'>订单状态:已关闭</view>
+       <navigator url='/pages/wode/dingdanxiangqing/dingdanxiangqing?id={{ item.order_id }}'>
+      <view style="text-align:center"> 查看订单详情！</view>
+      </navigator>
+    </view>
+    
+  </view>
+</view>

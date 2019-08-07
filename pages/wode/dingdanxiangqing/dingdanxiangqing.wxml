@@ -1,0 +1,56 @@
+<view class='topExpress'>
+  <view class='topExpress-left'>
+    <image src='/images/person/kuaidi.png' style='width:60rpx;height:60rpx;border-radius:50%;'></image>
+  </view>
+  <view style='margin-left:60rpx' class='topExpress-right'>
+    <view class='topExpress-right-top'>订单id：{{dingdanxiangqing.order_id}}</view>
+    <view class='topExpress-right-middle'>下单时间:{{dingdanxiangqing.order_create_time}}</view>
+    <view class='topExpress-right-bottom'>订单项目:{{dingdanxiangqing.order_item}}</view>
+    <view wx:if="{{dingdanxiangqing.order_status==0}}" class='topExpress-right-bottom'>
+      订单状态:代付款
+    </view>
+    <view wx:if="{{dingdanxiangqing.order_status==1}}" class='topExpress-right-bottom'>
+      订单状态:已付款
+    </view>
+    <view wx:if="{{dingdanxiangqing.order_status==2}}" class='topExpress-right-bottom'>
+      订单状态:已关闭
+    </view>
+    <view wx:if="{{dingdanxiangqing.order_shipping_status==0}}" class='topExpress-right-bottom'>
+      商品状态:揽件中
+    </view>
+    <view wx:if="{{dingdanxiangqing.order_shipping_status==1}}" class='topExpress-right-bottom'>
+      商品状态:运输中
+    </view>
+    <view wx:if="{{dingdanxiangqing.order_shipping_status==2}}" class='topExpress-right-bottom'>
+      商品状态:配送中
+    </view>
+    <view wx:if="{{dingdanxiangqing.order_shipping_status==3}}" class='topExpress-right-bottom'>
+      商品状态:配送完成
+    </view>
+    <view class='topExpress-right-bottom'>商品物流id:{{dingdanxiangqing.shipping_id}}</view>
+    <view class='topExpress-right-bottom'>用户id:{{dingdanxiangqing.user_id}}</view>
+    <view style="text-align:center" bindtap='CheckPost' data-shipping-id='{{dingdanxiangqing.shipping_id}}'>
+      点击查看物流详情！
+    </view>
+    <!-- 这里绑定data-shipping-id 这个数据格式，方便页面内的一个数据的获取 -->
+    <view wx:if="{{wuliu.errno==0}}" class='topExpress-right-bottom'>查询物流信息成功！</view>
+    <view>商品物流id：{{wuliu.data.shipping_id}}</view>
+    <view>运输状态：{{wuliu.data.shipping_info}}</view>
+    <view wx:if="{{wuliu.data.shipping_status==0}}" class='topExpress-right-bottom'>
+      商品状态:揽件中
+    </view>
+    <view wx:if="{{wuliu.data.shipping_status==1}}" class='topExpress-right-bottom'>
+      商品状态:运输中
+    </view>
+    <view wx:if="{{wuliu.data.shipping_status==2}}" class='topExpress-right-bottom'>
+      商品状态:配送中
+    </view>
+    <view wx:if="{{wuliu.data.shipping_status==3}}" class='topExpress-right-bottom'>
+      商品状态:配送完成
+    </view>
+    <view wx:if="{{wuliu.errno==1000}}" class='topExpress-right-bottom'>查询物流信息失败，请重新检查订单信息！！</view>
+    <view>商品物流id：暂无</view>
+    <view>运输状态：暂无</view>
+    <view>商品状态：暂无</view>
+  </view>
+</view>
