@@ -1,12 +1,15 @@
 // pages/person/person.js
 //获取应用实例
-const app = getApp();
+var app = getApp()
 Page({
   /**
    * 页面的初始数据
    */
   data: {
-
+    userInfo:{},
+    motto:'hello world',
+    hasUserInfo: false,
+    canIUse: wx.canIUse('button.open-type.getUserInfo'),
     // orderItems
     orderItems: [{
         typeId: 0,
@@ -37,7 +40,7 @@ Page({
   //事件处理函数
   toOrder: function() {
     wx.navigateTo({
-      url: '../wode/qbdd/qbdd'
+      url: '../wode/allorder/allorder'
     })
     
   },
@@ -66,7 +69,7 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function(options) {
+  onLoad: function(option) {
     if (app.globalData.userInfo) {
       this.setData({
         userInfo: app.globalData.userInfo,
@@ -109,7 +112,7 @@ Page({
     
 
   },
-
+  
 
   /**
    * 生命周期函数--监听页面显示
@@ -117,52 +120,7 @@ Page({
   onShow: function() {
     
   },
-  /**
-   *用户登录设置
-   */
-  /*doLogin(e){
-    console.log(e)
-    if(e.detail.userInfo){
-      wx.showLoading({title:'登录中'})
-      wx.login({
-        success: (res) => {
-          console.log(res.code)
-          wx.request({
-            method: 'POST',
-            url: app.globalData.serverPath + '/database/oauth/login/weixin',
-            data:{
-              code: res.code,
-              userInfo: e.detail.userInfo
-            },
-            success: (res) => {
-              console.log(res)
-              this.getUserInfo()
-              
-              wx.setStorage({
-                key: app.globalData.storageKey,
-                data: res.data.data
-              })
-              wx.showToast({title:'登录成功'})
-            }
-          })
-        }
-      })
-    }
-    else{
-      wx.showToast({title: '授权失败',icon:'none'})
-    }
-  },
-  getUserInfo(){
-    wx.getUserInfo({
-      success: (res) => {
-        this.setData({
-          isLogged: true,
-          userInfo: res.userInfo
-        })
-      }
-    })
-  },*/
- 
+  
   /**
    * 生命周期函数--监听页面隐藏
    */
