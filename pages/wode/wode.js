@@ -37,6 +37,12 @@ Page({
       }
     ],
   },
+  //点击头像跳转到个人中心
+  person:function(){
+    wx.navigateTo({
+      url: '../wode/person/person'
+    })
+  },
   //事件处理函数
   toOrder: function() {
     wx.navigateTo({

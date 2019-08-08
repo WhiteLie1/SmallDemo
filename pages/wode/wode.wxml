@@ -1,11 +1,10 @@
 <!-- pages/mine/mine.wxml -->
 <view class="container">
-  <view class='head head-height'>
+  <view bindtap ='person'class='head head-height'>
     <!-- 最上面的头部的一栏的设置 -->
     <block wx:if="{{!hasUserInfo && canIUse}}">
       <view class="userinfo">
         <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
-        <text class="userinfo-nickname">微信授权</text>
       </view>
       <button class="login-button head-height" open-type="getUserInfo" bindgetuserinfo="getUserInfo">
         获取头像昵称
@@ -15,6 +14,7 @@
       <view class="userinfo">
         <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
         <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+        <text class = "person" style='color:#fff'>个人中心</text>
       </view>
     </block>
   </view>
@@ -70,11 +70,7 @@
       <text class="item-text">账户与安全</text>
     </view>
     <view class="person-line"></view>
-    <view class="list-item">
-      <image class="item-image" src="../../images/person/wodepinjia.png"></image>
-      <text class="item-text">切换用户</text>
-    </view>
-    <view class="person-line"></view>
+    
     <view class="list-item">
       <image class="item-image" src="../../images/person/wodepinjia.png"></image>
       <text class="item-text">退出登录</text>
