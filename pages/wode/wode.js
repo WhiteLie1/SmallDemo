@@ -71,6 +71,11 @@ Page({
       url: '/pages/wode/dengpinjia/dengpinjia'
     })
   },
+  addres(){
+    wx.navigateTo({
+      url: '/pages/wode/addressList/addressList'
+    })
+  },
 
   /**
    * 生命周期函数--监听页面加载
