@@ -20,29 +20,27 @@
       </view>
     </block>
   </view>
-  <view class="separate"></view>
+  <view style="background:#F0F0F0;height:15rpx;"class="separate"></view>
 
-  <view class = 'box'>
-    <view class = 'xiao'>商品关注</view>
-    <view class = 'xiao'>店铺关注</view>
-    <view class = 'xiao'>喜欢的内容</view>
-    <view class = 'xiao'>浏览记录</view>
+  
+  <view class = 'sencondbox'>
+    <view class="order" catchtap="toOrder">
+      <text class="myorder-text">我的订单</text>
+      <text class="myorderlook-text">查看全部订单</text>
+      <image class="next-image" src="../../images/person/right.png"></image>
+    </view>
+     <view class="person-line1"></view>
+    <view class="line"></view>
+    <view class="navs">
+      <block wx:for-items="{{orderItems}}" wx:key="name">
+        <view class="nav-item" bindtap="toOrder{{item.typeId}}" data-type="{{item.name}}" data-typeid="{{item.typeId}}">
+          <image src="{{item.imageurl}}" class="nav-image" />
+          <view>{{item.name}}</view>
+        </view>
+      </block>
+    </view>
   </view>
 
-  <view class="order" catchtap="toOrder">
-    <text class="myorder-text">我的订单</text>
-    <text class="myorderlook-text">查看全部订单</text>
-    <image class="next-image" src="../../images/person/quanbu.png"></image>
-  </view>
-  <view class="line"></view>
-  <view class="navs">
-    <block wx:for-items="{{orderItems}}" wx:key="name">
-      <view class="nav-item" bindtap="toOrder{{item.typeId}}" data-type="{{item.name}}" data-typeid="{{item.typeId}}">
-        <image src="{{item.imageurl}}" class="nav-image" />
-        <view>{{item.name}}</view>
-      </view>
-    </block>
-  </view>
   <view class="separate"></view>
   <view class="person-list">
     <view bindtap="toOrder{{item.typeId}}"class="list-item">
