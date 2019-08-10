@@ -8,7 +8,7 @@ page{
   display: flex;
   flex-direction: column;
   align-items: center;
-  background: #fff; /*背景颜色*/
+  background: #F3D2AD; /*背景颜色*/
 }
 
 .userinfo-avatar {
@@ -20,9 +20,29 @@ page{
 .userinfo-nickname {
   color: #2c2c2c;
 }
+.Dsencondbox{
+  justify-content: center;/*view控件里面的布局的设置*/
+  flex-direction: row;
+  display: flex;
+  background: #fff;
+}
 .sencondbox{ 
   padding: 5rpx;
-  border: 2rpx solid #707070/*边框的设置*/
+  border: 2rpx solid #eee;/*边框的设置*/
+  border-radius: 40rpx;/*弧度的设置*/
+  width: 90%;
+}
+.Dthirdbox{
+  background: #fff;
+  justify-content: center;/*view控件里面的布局的设置*/
+  flex-direction: row;
+  display: flex;
+}
+.thirdbox{
+  border-radius: 40rpx;/*弧度的设置*/
+  width: 90%;
+  justify-content: center;
+  border: 2rpx solid #eee/*边框的设置*/
 }
 /*个人中心的下面的设置*/
 .box{
@@ -68,7 +88,15 @@ page{
 }
 .navs {
   display: flex;
+  flex-wrap: nowrap;/**/
 }
+.navs1 {
+  display: flex;
+  flex-wrap: wrap;/*越界自动换行*/
+  padding-bottom: 35rpx;
+  padding-top: 25rpx;
+}
+
 .nav-item {
   width: 25%;
   display: flex;
@@ -80,6 +108,19 @@ page{
   width: 40rpx;
   height: 40rpx;
   margin: 5rpx;
+}
+/*必备工具的设置*/
+.nav-item1 {
+  width: 25%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding: 0rpx;
+}
+.nav-item1 .nav-image1 {
+  width: 80rpx;
+  height: 80rpx;
+  margin: 20rpx;
 }
 .nav-item text {
   margin-top: 20rpx;
@@ -118,10 +159,35 @@ page{
 .person-line1{
   width: 100%;
   height: 2rpx;
-  background: lightgray;
+  background: #eee;
   margin-left: 0rpx;
 }
-
+.box1{/*流式布局的设置*/
+  display: flex;
+  font-display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  }
+  .tuijian{
+    width: 50%;
+    height:200px;
+  }
+  .tuijian-image{
+    width: 200px;
+    height: 200px;
+  }
+ 
+  .commodity__info {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 25rpx;
+    align-items: center;
+    height: 15vh;
+  }
+  
+  .commodity__name {
+    margin-right: 20rpx;
+  }
 
 
 

@@ -1,1 +1,4 @@
 /* pages/wode/person/person.wxss */
+.container{
+    padding:10rpx;
+}

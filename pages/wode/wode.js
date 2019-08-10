@@ -6,6 +6,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    commandList:[],//推荐列表
     userInfo:{},
     motto:'hello world',
     hasUserInfo: false,
@@ -36,6 +37,57 @@ Page({
         imageurl: '../../images/person/daipinjia.png'
       }
     ],
+    //我的工具
+    orderItems1: [{
+      typeId: 0,
+      name: '优惠券',
+      url: 'bill',
+      imageurl: '../../images/person/personal_card.png',
+    },
+    {
+      typeId: 1,
+      name: '客服小蜜',
+      url: 'bill',
+      imageurl: '../../images/person/wodeshoucang.png',
+    },
+    {
+      typeId: 2,
+      name: '我的收藏',
+      url: 'bill',
+      imageurl: '../../images/person/personal_favorite.png'
+    },
+    {
+      typeId: 3,
+      name: '地址管理',
+      url: 'bill',
+      imageurl: '../../images/person/wodeshouhuodizhi.png'
+    },
+    {
+      typeId: 4,
+      name: '售后记录',
+      url: 'bill',
+      imageurl: '../../images/person/personal_sale_record.png'
+    },
+    {
+      typeId: 5,
+      name: '我的评价',
+      url: 'bill',
+      imageurl: '../../images/person/personal_evaluated.png'
+    },
+    {
+      typeId: 6,
+      name: '主题换肤',
+      url: 'bill',
+      imageurl: '../../images/person/zhuti.png'
+    },
+    {
+      typeId: 7,
+      name: '闲置换钱',
+      url: 'bill',
+      imageurl: '../../images/person/huanqian.png'
+    }
+  ],
+
   },
   //点击头像跳转到个人中心
   person:function(){
@@ -44,7 +96,7 @@ Page({
     })
   },
   //事件处理函数
-  toOrder: function() {
+  toOrder: function() { //所有订单的设置
     wx.navigateTo({
       url: '../wode/allorder/allorder'
     })
@@ -71,7 +123,8 @@ Page({
       url: '/pages/wode/dengpinjia/dengpinjia'
     })
   },
-  addres(){
+  /**工具栏的设定 */
+  CtoOrder3(){
     wx.navigateTo({
       url: '/pages/wode/addressList/addressList'
     })
@@ -80,7 +133,33 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function(option) {
+  onLoad: function(options) {
+    //获取推荐商品的详情
+    console.log(options)
+    // this.getCommodity(options.id)
+    //在这里实现前后端的交互和对接功能
+    const requestTask = wx.request({
+      //这个url是本机的IP地址 会出现不合法域名，在 >>这里设置忽略不校验合法域名
+     url: 'https://whatdoyoudo.club/api/database/recommend', //仅为示例，并非真实的接口地址
+      data: {
+        x: '',
+        y: ''
+      },
+      header: {
+        'content-type': 'application/json'
+      },
+      success: (res) => { //这边要用 res => 来记录历史
+        console.log("这是商城页面的数据")
+        console.log(res.data)
+        this.setData({
+          //src: '../../image/goo1.png',
+          //src: res.data,
+          commandList: res.data //返回数据
+        })
+      }
+
+    })
+    //登录的设置
     if (app.globalData.userInfo) {
       this.setData({
         userInfo: app.globalData.userInfo,

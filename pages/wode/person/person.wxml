@@ -1,2 +1,8 @@
 <!--pages/wode/person/person.wxml-->
-<view>个人中心</view>
+<view class="container">
+<view>头像</view>
+<view >昵称</view>
+<view >性别</view>
+<view >手机</view>
+<view>退出登录</view>
+</view>
