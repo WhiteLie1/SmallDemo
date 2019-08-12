@@ -1,2 +1,13 @@
-<!--pages/wode/youhui/youhui.wxml-->
-<view >优惠券</view>
+<!-- pages/wode/youhui/youhui.wxml -->
+<!-- 轮播的实现 -->
+<view style="">
+    <!--轮播图的实现-->
+    <swiper class='swiperClass' autoplay indicator-color="#a39f99" indicator-active-color="#f49641" indicator-dots interval="2000" duration="1000" previous-margin="30px" next-margin="30px" circular bindchange="bindchange" style='height: {{swiperHeight}}px'>
+        <block wx:for="{{lunboUrls}}" wx:key="{{index}}">
+            <swiper-item>
+                <image src="{{item}}" class="slide-image {{swiperIndex == index ? 'active' : 'quiet'}}" mode='aspectFill'></image>
+            </swiper-item>
+        </block>
+    </swiper>
+    <view>立即领取</view>
+</view>

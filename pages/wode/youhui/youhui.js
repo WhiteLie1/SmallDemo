@@ -5,7 +5,20 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    //轮播图
+    lunboUrls: [
+      'https://img.alicdn.com/imgextra/i2/725677994/O1CN01kfrVbt28vIhXJolD0_!!0-item_pic.jpg_430x430q90.jpg',
+      'https://img.alicdn.com/imgextra/i3/725677994/O1CN01DHAJi028vIhZlSsJs_!!0-item_pic.jpg_430x430q90.jpg',
+      'https://img.alicdn.com/imgextra/i3/725677994/O1CN01ZQq8vL28vIhRiNrSl_!!725677994-0-sm.jpg_430x430q90.jpg',
+      'https://img.alicdn.com/imgextra/i2/725677994/O1CN0152uhEj28vIhY0so0F_!!0-item_pic.jpg_430x430q90.jpg'
+      
+    ],
+  },
+   //点击事件
+   bindchange(e) {
+    this.setData({
+      swiperIndex: e.detail.current
+    })
   },
 
   /**
