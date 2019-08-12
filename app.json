@@ -13,6 +13,13 @@
     "pages/wode/person/person",
     "pages/wode/addressList/addressList",
     "pages/wode/address/address",
+    "pages/wode/youhui/youhui",
+    "pages/wode/kefu/kefu",
+    "pages/wode/shoucang/shoucang",
+    "pages/wode/shouhou/shouhou",
+    "pages/wode/pinjia/pinjia",
+    "pages/wode/zhuti/zhuti",
+    "pages/wode/huanqian/huanqian",
     "pages/index/index",
     "pages/logs/logs"
     

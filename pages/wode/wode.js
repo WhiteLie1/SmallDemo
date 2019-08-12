@@ -118,15 +118,50 @@ Page({
     })
   },
   //待收货的跳转
-  toOrder3(e){
+  toOrder0(e){
     wx.navigateTo({
       url: '/pages/wode/dengpinjia/dengpinjia'
     })
   },
   /**工具栏的设定 */
+  CtoOrder0(){
+    wx.navigateTo({
+      url: '/pages/wode/youhui/youhui'
+    })
+  },
+  CtoOrder1(){
+    wx.navigateTo({
+      url: '/pages/wode/kefu/kefu'
+    })
+  },
+  CtoOrder2(){
+    wx.navigateTo({
+      url: '/pages/wode/shoucang/shoucang'
+    })
+  },
   CtoOrder3(){
     wx.navigateTo({
       url: '/pages/wode/addressList/addressList'
+    })
+  },
+  CtoOrder4(){
+    wx.navigateTo({
+      url: '/pages/wode/shouhou/shouhou'
+    })
+  },
+  CtoOrder5(){
+    wx.navigateTo({
+      url: '/pages/wode/pinjia/pinjia'
+    })
+  },
+  CtoOrder6(){
+    wx.navigateTo({
+      url: '/pages/wode/zhuti/zhuti'
+    })
+  },
+  CtoOrder7(){
+    wx.navigateTo({
+      url: '/pages/wode/huanqian/huanqian'
     })
   },
 
