@@ -1,10 +1,14 @@
+const app = getApp()
 Page({
   /**
   * 页面的初始数据
   */
   data: {
     curNav: 1,
-    commandList: [] // 商品列表的设定
+    commandList: [] ,// 商品列表的设定
+    //详情页面设置
+    introduction: '暂无商品描述',
+    ingredient: '暂无成分信息'
   },
   /* 把点击到的某一项 设为当前curNav */
   switchRightTab: function (e) {
@@ -18,8 +22,18 @@ Page({
   * 生命周期函数--监听页面加载
   */
   onLoad: function (options) {
+    //超
+    wx.request({
+      method: 'GET',
+      url: app.globalData.serverPath + '/commodity/detail?id=${options.id}',
+      success: (res) => { 
+        this.setData({ 
+          commodity: res.data 
+        }) 
+      }
+    })    
    //获取推荐商品的详情
-   console.log(options)
+  /* console.log(options)
    // this.getCommodity(options.id)
    //在这里实现前后端的交互和对接功能
    const requestTask = wx.request({
@@ -42,7 +56,7 @@ Page({
        })
      }
 
-   })
+   })*/
   },
   /**
   * 生命周期函数--监听页面初次渲染完成
@@ -78,5 +92,13 @@ Page({
   * 用户点击右上角分享
   */
   onShareAppMessage: function () {
-  }
+  },
+  doBuy: () => {
+    wx.navigateTo({ url: '/pages/pay/pay' })
+  },
+  doAddToCart: () => {
+    // 业务逻辑代码
+    wx.showToast({ title: '加入购物车成功', icon: 'success' })
+  },
+ 
 })
