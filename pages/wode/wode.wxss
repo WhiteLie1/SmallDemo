@@ -177,17 +177,7 @@ page{
     height: 200px;
   }
  
-  .commodity__info {
-    display: flex;
-    justify-content: space-between;
-    padding: 0 25rpx;
-    align-items: center;
-    height: 15vh;
-  }
   
-  .commodity__name {
-    margin-right: 20rpx;
-  }
 
 
 

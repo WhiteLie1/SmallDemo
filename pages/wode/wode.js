@@ -6,7 +6,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    commandList:[],//推荐列表
+    commodityList: [],// 商品列表的设定
     userInfo:{},
     motto:'hello world',
     hasUserInfo: false,
@@ -184,12 +184,13 @@ Page({
         'content-type': 'application/json'
       },
       success: (res) => { //这边要用 res => 来记录历史
-        console.log("这是商城页面的数据")
+        console.log("这是我的推荐页面的数据")
         console.log(res.data)
         this.setData({
           //src: '../../image/goo1.png',
           //src: res.data,
-          commandList: res.data //返回数据
+          commodityList: res.data //返回数据
+          
         })
       }
 

@@ -1,113 +1,135 @@
 <!-- 主盒子 -->
 <view class="container">
-    <!-- 左侧栏 -->
-    <view class='nav_left'>
-        <view class="nav_left_items {{curNav == 1 ? 'active' : ''}}" bindtap="switchRightTab" data-id="1">
-            宝洁-广州-智输
-        </view>
-        <view class="nav_left_items {{curNav == 2 ? 'active' : ''}}" bindtap="switchRightTab" data-id="2">
-            宝洁-惠州-智胜
-        </view>
-        <view class="nav_left_items {{curNav == 3 ? 'active' : ''}}" bindtap="switchRightTab" data-id="3">
-            宝洁-深圳-惠联
-        </view>
-        <view class="nav_left_items {{curNav == 4 ? 'active' : ''}}" bindtap="switchRightTab" data-id="4">
-            宝洁-珠海-海生
-        </view>
-        <view class="nav_left_items {{curNav == 5 ? 'active' : ''}}" bindtap="switchRightTab" data-id="5">
-            宝洁-汕头-莲花
-        </view>
-        <view class="nav_left_items {{curNav == 6 ? 'active' : ''}}" bindtap="switchRightTab" data-id="6">
-            宝洁-河源-七喜
-        </view>
-        <view class="nav_left_items {{curNav == 7 ? 'active' : ''}}" bindtap="switchRightTab" data-id="7">
-            宝洁-梅州-美达
-        </view>
+  <!-- 左侧栏 -->
+  <view class='nav_left'>
+    <view class="nav_left_items {{curNav == 1 ? 'active' : ''}}" bindtap="switchRightTab" data-id="1">
+      宝洁-广州-智输
     </view>
-    <!-- 右侧栏 -->
-    <view class="nav_right">
-        <view wx:if="{{curNav==1}}">
-            <view style='margin-left:50rpx;font-weight:bold;background:5ed1d4;color:#d81e06;text-align:center'>
-                私人订制，打造你的专属护肤品
-            </view>
-            <view class="page" style="position: relative">
-                <view class='page__hd'></view>
-                <view class='page__bd' style="padding-bottom: 180rpx">
-                    <view class="commodity">
-                       
-                        <view class="commodity__info commodity__info_direction-row">
-                            <view class="commodity__name" style="font-size: 12pt">
-                                {{ commodity.commodity_name }}
-                            </view>
-                            <view class="price">
-                                <text class='price__number price__number_size-m'>
-                                    {{ commodity.commodity_price }}
-                                </text>
-                            </view>
-                        </view>
-                        <view class="commodity__attribute">
-                            <i class="material-icons md-dark md-24">label</i>
-                            <view class="commodity__tag-list">
-                                <view wx:for='{{ commodity.commodity_tag }}' class="commodity__tag">
-                                    {{ item.tag_name }}
-                                </view>
-                            </view>
-                        </view>
-                        <van-tabs swipeable sticky>
-                            <van-tab title='介绍'>
-                                <view class="tab-content">{{ introduction }}</view>
-                            </van-tab>
-                            <van-tab title='成分'>
-                                <view class="tab-content">{{ ingredient }}</view>
-                            </van-tab>
-                        </van-tabs>
-                    </view>
-                </view>
-                <view class='buttons' style="position: fixed; bottom: 0; background: #fff; box-shadow: 0 -1px 3px lightgray">
-                    <view class="button button_theme-light button_shape-rounded" hover-class='button_theme-light_active' bind:tap='doAddToCart'>
-                        加入购物车
-                    </view>
-                    <view class="button button_theme-buy button_shape-rounded" hover-class="button_theme-buy_active" bind:tap='doBuy'>
-                        购买
-                    </view>
-                </view>
-            </view>
-        </view>
-        <view wx:if="{{curNav==2}}">
-            <view class="nav_right_items">
-                <image src="https://gaitaobao1.alicdn.com/tfscom/i4/758768216/O1CN01TI5z7j2AYycchyWUh_!!758768216.jpg_240x240xz.jpg_.webp"></image>
-                <text>奢悦净透VC小安瓶美肤亮白补水定</text>
-            </view>
-        </view>
-        <view wx:if="{{curNav==3}}">
-            <view class="nav_right_items">
-                <image src="https://gaitaobao1.alicdn.com/tfscom/i3/2621336574/O1CN017sSUtI1yQwGhmCPe7_!!2621336574.jpg_240x240xz.jpg_.webp"></image>
-                <text>LAVER全身美白沐浴露美白身体美白</text>
-            </view>
-        </view>
-        <view wx:if="{{curNav==4}}">
-            <view class="nav_right_items">
-                <image src="https://gaitaobao1.alicdn.com/tfscom/i3/669296868/O1CN01u0N9cj20baihGMhgP_!!669296868.jpg_240x240xz.jpg_.webp"></image>
-                <text>烟酰胺香氛沐浴露蓝风铃香水型持</text>
-            </view>
-        </view>
-        <view wx:if="{{curNav==5}}">
-            <view class="nav_right_items">
-                <image src="https://gaitaobao3.alicdn.com/tfscom/i4/2582492646/O1CN01vVCEZE1VPuXAbIVSQ_!!2582492646.jpg_240x240xz.jpg_.webp"></image>
-                <text>防晒霜喷雾面部防水全身防紫外线</text>
-            </view>
-        </view>
-        <view wx:if="{{curNav==6}}">
-            <view class="nav_right_items">
-                <image src="https://gaitaobao2.alicdn.com/tfscom/i2/654751816/O1CN01omLapM1PHlmdY1qbo_!!654751816.jpg_240x240xz.jpg_.webp"></image>
-                <text>抖音爆款防晒霜喷雾女男面部学生</text>
-            </view>
-        </view>
-        <view wx:if="{{curNav==7}}">
-            <view class="nav_right_items">
-                <image src="https://gaitaobao4.alicdn.com/tfscom/i3/2987441916/O1CN01MQll501Q1ZPFTEETO_!!0-item_pic.jpg_240x240xz.jpg_.webp"></image>
-                <text>lacabine西班牙安瓶精华VC小安瓶精</text>
-            </view>
-        </view>
+    <view class="nav_left_items {{curNav == 2 ? 'active' : ''}}" bindtap="switchRightTab" data-id="2">
+      宝洁-惠州-智胜
     </view>
+    <view class="nav_left_items {{curNav == 3 ? 'active' : ''}}" bindtap="switchRightTab" data-id="3">
+      宝洁-深圳-惠联
+    </view>
+    <view class="nav_left_items {{curNav == 4 ? 'active' : ''}}" bindtap="switchRightTab" data-id="4">
+      宝洁-珠海-海生
+    </view>
+    <view class="nav_left_items {{curNav == 5 ? 'active' : ''}}" bindtap="switchRightTab" data-id="5">
+      宝洁-汕头-莲花
+    </view>
+    <view class="nav_left_items {{curNav == 6 ? 'active' : ''}}" bindtap="switchRightTab" data-id="6">
+      宝洁-河源-七喜
+    </view>
+    <view class="nav_left_items {{curNav == 7 ? 'active' : ''}}" bindtap="switchRightTab" data-id="7">
+      宝洁-梅州-美达
+    </view>
+  </view>
+  <!-- 右侧栏 -->
+  <view class="nav_right">
+    <view wx:if="{{curNav==1}}">
+      <view style='margin-left:50rpx;font-weight:bold;background:5ed1d4;color:#d81e06;text-align:center'>
+        智输私人订制，打造你的专属护肤品
+      </view>
+      <!-- 商品推荐列表 -->
+      <view class="commodity-wrapper commodity-wrapper_theme-primary">
+        <navigator wx:for='{{ commodityList }}' class="commodity commodity_theme-primary" url='/pages/PersonalTailor/details/details?id={{ item._id }}'>
+          <image src='{{ item.thumbnail }}' mode='scaleToFill' class="commodity__cover commodity__cover_size-m"></image>
+          <view class="commodity__info">
+            <view class="commodity__name">{{ item.name }}</view>
+            <view class="commodity__price">{{ item.price }}</view>
+          </view>
+        </navigator>
+      </view>
+    </view>
+    <view wx:if="{{curNav==2}}">
+      <view style='margin-left:50rpx;font-weight:bold;background:5ed1d4;color:#d81e06;text-align:center'>
+        智胜私人订制，打造你的专属护肤品
+      </view>
+      <!-- 商品推荐列表 -->
+      <view class="commodity-wrapper commodity-wrapper_theme-primary">
+        <navigator wx:for='{{ commodityList }}' class="commodity commodity_theme-primary" url='/pages/PersonalTailor/details/details?id={{ item._id }}'>
+          <image src='{{ item.thumbnail }}' mode='scaleToFill' class="commodity__cover commodity__cover_size-m"></image>
+          <view class="commodity__info">
+            <view class="commodity__name">{{ item.name }}</view>
+            <view class="commodity__price">{{ item.price }}</view>
+          </view>
+        </navigator>
+      </view>
+    </view>
+    <view wx:if="{{curNav==3}}">
+      <view style='margin-left:50rpx;font-weight:bold;background:5ed1d4;color:#d81e06;text-align:center'>
+        惠联私人订制，打造你的专属护肤品
+      </view>
+      <!-- 商品推荐列表 -->
+      <view class="commodity-wrapper commodity-wrapper_theme-primary">
+        <navigator wx:for='{{ commodityList }}' class="commodity commodity_theme-primary" url='/pages/PersonalTailor/details/details?id={{ item._id }}'>
+          <image src='{{ item.thumbnail }}' mode='scaleToFill' class="commodity__cover commodity__cover_size-m"></image>
+          <view class="commodity__info">
+            <view class="commodity__name">{{ item.name }}</view>
+            <view class="commodity__price">{{ item.price }}</view>
+          </view>
+        </navigator>
+      </view>
+    </view>
+    <view wx:if="{{curNav==4}}">
+      <view style='margin-left:50rpx;font-weight:bold;background:5ed1d4;color:#d81e06;text-align:center'>
+        海生私人订制，打造你的专属护肤品
+      </view>
+      <!-- 商品推荐列表 -->
+      <view class="commodity-wrapper commodity-wrapper_theme-primary">
+        <navigator wx:for='{{ commodityList }}' class="commodity commodity_theme-primary" url='/pages/PersonalTailor/details/details?id={{ item._id }}'>
+          <image src='{{ item.thumbnail }}' mode='scaleToFill' class="commodity__cover commodity__cover_size-m"></image>
+          <view class="commodity__info">
+            <view class="commodity__name">{{ item.name }}</view>
+            <view class="commodity__price">{{ item.price }}</view>
+          </view>
+        </navigator>
+      </view>
+    </view>
+    <view wx:if="{{curNav==5}}">
+      <view style='margin-left:50rpx;font-weight:bold;background:5ed1d4;color:#d81e06;text-align:center'>
+        莲花私人订制，打造你的专属护肤品
+      </view>
+      <!-- 商品推荐列表 -->
+      <view class="commodity-wrapper commodity-wrapper_theme-primary">
+        <navigator wx:for='{{ commodityList }}' class="commodity commodity_theme-primary" url='/pages/PersonalTailor/details/details?id={{ item._id }}'>
+          <image src='{{ item.thumbnail }}' mode='scaleToFill' class="commodity__cover commodity__cover_size-m"></image>
+          <view class="commodity__info">
+            <view class="commodity__name">{{ item.name }}</view>
+            <view class="commodity__price">{{ item.price }}</view>
+          </view>
+        </navigator>
+      </view>
+    </view>
+    <view wx:if="{{curNav==6}}">
+      <view style='margin-left:50rpx;font-weight:bold;background:5ed1d4;color:#d81e06;text-align:center'>
+        七喜私人订制，打造你的专属护肤品
+      </view>
+      <!-- 商品推荐列表 -->
+      <view class="commodity-wrapper commodity-wrapper_theme-primary">
+        <navigator wx:for='{{ commodityList }}' class="commodity commodity_theme-primary" url='/pages/PersonalTailor/details/details?id={{ item._id }}'>
+          <image src='{{ item.thumbnail }}' mode='scaleToFill' class="commodity__cover commodity__cover_size-m"></image>
+          <view class="commodity__info">
+            <view class="commodity__name">{{ item.name }}</view>
+            <view class="commodity__price">{{ item.price }}</view>
+          </view>
+        </navigator>
+      </view>
+    </view>
+    <view wx:if="{{curNav==7}}">
+      <view style='margin-left:50rpx;font-weight:bold;background:5ed1d4;color:#d81e06;text-align:center'>
+        美达私人订制，打造你的专属护肤品
+      </view>
+      <!-- 商品推荐列表 -->
+      <view class="commodity-wrapper commodity-wrapper_theme-primary">
+        <navigator wx:for='{{ commodityList }}' class="commodity commodity_theme-primary" url='/pages/PersonalTailor/details/details?id={{ item._id }}'>
+          <image src='{{ item.thumbnail }}' mode='scaleToFill' class="commodity__cover commodity__cover_size-m"></image>
+          <view class="commodity__info">
+            <view class="commodity__name">{{ item.name }}</view>
+            <view class="commodity__price">{{ item.price }}</view>
+          </view>
+        </navigator>
+      </view>
+    </view>
+  </view>
 </view>

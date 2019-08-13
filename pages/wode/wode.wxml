@@ -61,20 +61,18 @@
   <view class="separate"></view>
   <!-- 推荐设置 -->
   <view class="last">
-    <view style='margin-left:50rpx;font-weight:bold;background:5ed1d4;color:#d81e06;text-align:center'>猜你喜欢</view>
-    <view class='box1'>
-      <view wx:for='{{commandList}}' class="tuijian">
-        <navigator url='/pages/PersonalTailor/details/details?id={{ item._id }}'>
-          <!-- 跳转的界面设计 用navigator包含起来 要整个的包含进去 -->
-          <image style='width:250rpx;height:260rpx;margin-left:50rpx;' class='tuijian-img' src='{{item.thumbnail}}' plain='true' mode='widthFix'></image>
-          <!-- margin-left 设置位置居中或者位置偏向 -->
-          <view style="margin-left:120rpx;font-color:red;">￥{{item.price}}</view>
-          <view style="margin-left:50rpx;font-size:12pt" class='tuijian-des'>
-            {{item.name}}
-          </view>
-        </navigator>
-      </view>
+    <view style='margin-left:50rpx;font-weight:bold;background:5ed1d4;color:#d81e06;text-align:center'>
+      猜你喜欢
     </view>
-    
+    <!-- 商品推荐列表 -->
+    <view class="commodity-wrapper commodity-wrapper_theme-primary">
+      <navigator wx:for='{{ commodityList }}' class="commodity commodity_theme-primary" url='/pages/PersonalTailor/details/details?id={{ item._id }}'>
+        <image src='{{ item.thumbnail }}' mode='scaleToFill' class="commodity__cover commodity__cover_size-m"></image>
+        <view class="commodity__info">
+          <view class="commodity__name">{{ item.name }}</view>
+          <view class="commodity__price">{{ item.price }}</view>
+        </view>
+      </navigator>
+    </view>
   </view>
 </view>

@@ -5,10 +5,8 @@ Page({
   */
   data: {
     curNav: 1,
-    commandList: [] ,// 商品列表的设定
-    //详情页面设置
-    introduction: '暂无商品描述',
-    ingredient: '暂无成分信息'
+    commodityList: [],// 商品列表的设定
+    
   },
   /* 把点击到的某一项 设为当前curNav */
   switchRightTab: function (e) {
@@ -22,16 +20,10 @@ Page({
   * 生命周期函数--监听页面加载
   */
   onLoad: function (options) {
-    //超
-    wx.request({
-      method: 'GET',
-      url: app.globalData.serverPath + '/commodity/detail?id=${options.id}',
-      success: (res) => { 
-        this.setData({ 
-          commodity: res.data 
-        }) 
-      }
-    })    
+     //超
+     console.log('safePaddingBottom', app.globalData.safePaddingBottom)
+    this.setData({ safePaddingBottom: app.globalData.safePaddingBottom })
+    this.getRecommendCommodity()
    //获取推荐商品的详情
   /* console.log(options)
    // this.getCommodity(options.id)
@@ -57,6 +49,20 @@ Page({
      }
 
    })*/
+  },
+  getRecommendCommodity() {
+    let that = this
+    wx.request({
+      mehtod: 'GET',
+      url: 'https://whatdoyoudo.club/api/database/recommend',
+      success: (res) => {
+        console.log("这是私人定制页面的数据")
+        console.log(res.data)
+        that.setData({
+          commodityList: res.data
+        })        
+      }
+    })
   },
   /**
   * 生命周期函数--监听页面初次渲染完成
@@ -92,13 +98,6 @@ Page({
   * 用户点击右上角分享
   */
   onShareAppMessage: function () {
-  },
-  doBuy: () => {
-    wx.navigateTo({ url: '/pages/pay/pay' })
-  },
-  doAddToCart: () => {
-    // 业务逻辑代码
-    wx.showToast({ title: '加入购物车成功', icon: 'success' })
-  },
- 
+  }
+  
 })

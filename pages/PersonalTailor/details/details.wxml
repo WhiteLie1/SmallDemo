@@ -1,39 +1,42 @@
-<view class="main">
-  <view class="goods-box">
-    <image src="{{commodity.thumbnail}}" class="goods-thumb"></image>
-    <navigator open-type="navigate" url="../../gouwuche/gouwuche">
-      <view class="carts-icon {{scaleCart?'on':''}}">
-        <image src="/images/shangcheng/Dgouwuche.png"></image>
-        <text class="carts-icon-num" wx:if="{{hasCarts}}">{{totalNum}}</text>
+<view class="page" style="position: relative">
+  <view class='page__hd'></view>
+  <view class='page__bd' style="padding-bottom: 180rpx">
+    <view class="commodity">
+      <swiper class="" indicator-dots='true'>
+        <swiper-item>
+          <image src="{{ commodity.thumbnail }}"></image>
+        </swiper-item>
+      </swiper>
+      <view class="commodity__info commodity__info_direction-row">
+        <view class="commodity__name" style="font-size: 12pt">{{ commodity.name }}</view>
+        <view class="price">
+          <text class='price__number price__number_size-m'>{{ commodity.price }}</text>
+        </view>
       </view>
-    </navigator>
-    <view class="goods-operation">
-      <text class="goods-operation-num">数量  {{num}}</text>
-      <view class="goods-operation-add" bindtap="addCount">
-        <image src='/images/shangcheng/tianjia.png' style='width:75rpx;height:65rpx;margin-top:29rpx'></image>
+      <view class="commodity__attribute">
+        <i class="material-icons md-dark md-24">label</i>
+        <view class="commodity__tag-list">
+          <view wx:for='{{ commodity.commodity_tag }}' class="commodity__tag">
+            {{ item.tag_name }}
+          </view>
+        </view>
       </view>
-      <view class="goods-operation-jian" bindtap="subtraction">
-        <image src='/images/shangcheng/jianshao.png' style='width:45rpx;height:45rpx;margin-top:29rpx'></image>
-      </view>
-      <text class="goods-to-cart" bindtap="addToCart" style='margin-top:29rpx'>加入购物车</text>
-      <image src="/images/shangcheng/gouwuche.png" class="goods-cart-img" bindtap="addToCart"></image>
+      <van-tabs swipeable sticky>
+        <van-tab title='介绍'>
+          <view class="tab-content">{{ introduction }}</view>
+        </van-tab>
+        <van-tab title='成分'>
+          <view class="tab-content">{{ ingredient }}</view>
+        </van-tab>
+      </van-tabs>
     </view>
-    <image wx:if="{{show}}" src="/image/cart1.png" class="to-carts-icon"></image>
-    <view class="goods-stock">库存：{{20}}</view>
-    <view class="goods-title">{{commodity.name}}</view>
-    <view class="goods-price">￥{{commodity.price}}</view>
   </view>
-  <view class='duan'></view>
-  <view class="goods-tab-box">
-    <view class="goods-tab-nav {{curIndex === 0 ?'on':''}}" bindtap="bindTap" data-index="0">商品详情</view>
-    <view class="goods-tab-nav {{curIndex === 1 ?'on':''}}" bindtap="bindTap" data-index="1">产品参数</view>
-    <view class="goods-tab-nav {{curIndex === 2 ?'on':''}}" bindtap="bindTap" data-index="2">售后保障</view>
-    <view class="goods-content">
-      <view wx:if="{{curIndex === 0}}"> 
-      <image src='https://img.alicdn.com/imgextra/i1/4004614770/TB24O9FEFmWBuNjSspdXXbugXXa_!!4004614770.jpg' mode='aspectFit'></image>
-      </view>
-      <view wx:if="{{curIndex === 1}}"><image src='/images/shangcheng/remen.png' mode='aspectFit'></image></view>
-      <view wx:if="{{curIndex === 2}}">江浙沪地区包邮，运输途中破损，联系我们，我们会尽快给客官您发第二套</view>
+  <view class='buttons' style="position: fixed; bottom: 0; background: #fff; box-shadow: 0 -1px 3px lightgray">
+    <view class="button button_theme-light button_shape-rounded" hover-class='button_theme-light_active' bind:tap='doAddToCart'>
+      加入购物车
+    </view>
+    <view class="button button_theme-buy button_shape-rounded" hover-class="button_theme-buy_active" bind:tap='doBuy'>
+      购买
     </view>
   </view>
 </view>
