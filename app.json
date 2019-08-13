@@ -1,7 +1,8 @@
 {
   "pages": [
     
-    "pages/shangchen/shangchen",
+    "pages/PersonalTailor/PersonalTailor",
+    "pages/PersonalTailor/details/details",
     "pages/wode/wode",
     "pages/wode/wuliu/wuliu",
     "pages/wode/dengpinjia/dengpinjia",
@@ -40,10 +41,10 @@
     "backgroundColor": "#ffffff",
     "list": [
       {
-        "pagePath": "pages/shangchen/shangchen",
-        "text": "商城",
-        "iconPath": "images/shangchen.png",
-        "selectedIconPath": "images/Dshangchen.png"
+        "pagePath": "pages/PersonalTailor/PersonalTailor",
+        "text": "私人定制",
+        "iconPath": "images/dingzhi.png",
+        "selectedIconPath": "images/Ddingzhi.png"
       },
       {
         "pagePath": "pages/wode/wode",

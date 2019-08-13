@@ -61,20 +61,20 @@
   <view class="separate"></view>
   <!-- 推荐设置 -->
   <view class="last">
-    <view style='margin-left:50rpx;font-weight:bold;background:5ed1d4;color:#d81e06'>猜你喜欢</view>
+    <view style='margin-left:50rpx;font-weight:bold;background:5ed1d4;color:#d81e06;text-align:center'>猜你喜欢</view>
     <view class='box1'>
       <view wx:for='{{commandList}}' class="tuijian">
-        <navigator url='/pages/shangchen/xiangxi/xiangxi?id={{ item.commodity_id }}'>
+        <navigator url='/pages/PersonalTailor/details/details?id={{ item._id }}'>
           <!-- 跳转的界面设计 用navigator包含起来 要整个的包含进去 -->
-          <image style='width:250rpx;height:260rpx;margin-left:50rpx;' class='tuijian-img' src='{{item.commodity_cover}}' plain='true' mode='widthFix'></image>
+          <image style='width:250rpx;height:260rpx;margin-left:50rpx;' class='tuijian-img' src='{{item.thumbnail}}' plain='true' mode='widthFix'></image>
           <!-- margin-left 设置位置居中或者位置偏向 -->
-          <view style="margin-left:120rpx;font-color:red;">￥{{item.commodity_price}}</view>
+          <view style="margin-left:120rpx;font-color:red;">￥{{item.price}}</view>
           <view style="margin-left:50rpx;font-size:12pt" class='tuijian-des'>
-            {{item.commodity_name}}
+            {{item.name}}
           </view>
         </navigator>
       </view>
     </view>
-    >
+    
   </view>
 </view>

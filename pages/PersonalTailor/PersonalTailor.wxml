@@ -1,0 +1,82 @@
+<!-- 主盒子 -->
+<view class="container">
+    <!-- 左侧栏 -->
+    <view class='nav_left'>
+        <view class="nav_left_items {{curNav == 1 ? 'active' : ''}}" bindtap="switchRightTab" data-id="1">
+            宝洁-广州-智输
+        </view>
+        <view class="nav_left_items {{curNav == 2 ? 'active' : ''}}" bindtap="switchRightTab" data-id="2">
+            宝洁-惠州-智胜
+        </view>
+        <view class="nav_left_items {{curNav == 3 ? 'active' : ''}}" bindtap="switchRightTab" data-id="3">
+            宝洁-深圳-惠联
+        </view>
+        <view class="nav_left_items {{curNav == 4 ? 'active' : ''}}" bindtap="switchRightTab" data-id="4">
+            宝洁-珠海-海生
+        </view>
+        <view class="nav_left_items {{curNav == 5 ? 'active' : ''}}" bindtap="switchRightTab" data-id="5">
+            宝洁-汕头-莲花
+        </view>
+        <view class="nav_left_items {{curNav == 6 ? 'active' : ''}}" bindtap="switchRightTab" data-id="6">
+            宝洁-河源-七喜
+        </view>
+        <view class="nav_left_items {{curNav == 7 ? 'active' : ''}}" bindtap="switchRightTab" data-id="7">
+            宝洁-梅州-美达
+        </view>
+    </view>
+    <!-- 右侧栏 -->
+    <view class="nav_right">
+        <view wx:if="{{curNav==1}}">
+            <view style='margin-left:50rpx;font-weight:bold;background:5ed1d4;color:#d81e06;text-align:center'>私人订制，打造你的专属护肤品</view>
+            <view class='box1'>
+                <view wx:for='{{commandList}}' class="tuijian">
+                    <navigator url='/pages/shangchen/xiangxi/xiangxi?id={{ item._id }}'>
+                        <!-- 跳转的界面设计 用navigator包含起来 要整个的包含进去 -->
+                        <image style='width:250rpx;height:260rpx;margin-left:50rpx;' class='tuijian-img' src='{{item.thumbnail}}' plain='true' mode='widthFix'></image>
+                        <!-- margin-left 设置位置居中或者位置偏向 -->
+                        <view style="margin-left:120rpx;font-color:red;">￥{{item.price}}</view>
+                        <view style="margin-left:50rpx;font-size:12pt" class='tuijian-des'>
+                            {{item.name}}
+                        </view>
+                    </navigator>
+                </view>
+            </view>
+        </view>
+        <view wx:if="{{curNav==2}}">
+            <view class="nav_right_items">
+                <image src="https://gaitaobao1.alicdn.com/tfscom/i4/758768216/O1CN01TI5z7j2AYycchyWUh_!!758768216.jpg_240x240xz.jpg_.webp"></image>
+                <text>奢悦净透VC小安瓶美肤亮白补水定</text>
+            </view>
+        </view>
+        <view wx:if="{{curNav==3}}">
+            <view class="nav_right_items">
+                <image src="https://gaitaobao1.alicdn.com/tfscom/i3/2621336574/O1CN017sSUtI1yQwGhmCPe7_!!2621336574.jpg_240x240xz.jpg_.webp"></image>
+                <text>LAVER全身美白沐浴露美白身体美白</text>
+            </view>
+        </view>
+        <view wx:if="{{curNav==4}}">
+            <view class="nav_right_items">
+                <image src="https://gaitaobao1.alicdn.com/tfscom/i3/669296868/O1CN01u0N9cj20baihGMhgP_!!669296868.jpg_240x240xz.jpg_.webp"></image>
+                <text>烟酰胺香氛沐浴露蓝风铃香水型持</text>
+            </view>
+        </view>
+        <view wx:if="{{curNav==5}}">
+            <view class="nav_right_items">
+                <image src="https://gaitaobao3.alicdn.com/tfscom/i4/2582492646/O1CN01vVCEZE1VPuXAbIVSQ_!!2582492646.jpg_240x240xz.jpg_.webp"></image>
+                <text>防晒霜喷雾面部防水全身防紫外线</text>
+            </view>
+        </view>
+        <view wx:if="{{curNav==6}}">
+            <view class="nav_right_items">
+                <image src="https://gaitaobao2.alicdn.com/tfscom/i2/654751816/O1CN01omLapM1PHlmdY1qbo_!!654751816.jpg_240x240xz.jpg_.webp"></image>
+                <text>抖音爆款防晒霜喷雾女男面部学生</text>
+            </view>
+        </view>
+        <view wx:if="{{curNav==7}}">
+            <view class="nav_right_items">
+                <image src="https://gaitaobao4.alicdn.com/tfscom/i3/2987441916/O1CN01MQll501Q1ZPFTEETO_!!0-item_pic.jpg_240x240xz.jpg_.webp"></image>
+                <text>lacabine西班牙安瓶精华VC小安瓶精</text>
+            </view>
+        </view>
+    </view>
+</view>
